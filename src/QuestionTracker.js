@@ -1,4 +1,4 @@
-const QuestionTracker = ({gameCount}) => {
+const QuestionTracker = ({gameCount, gameOver}) => {
     return(
         <h2>question: {gameCount}</h2>
     )
