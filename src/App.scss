@@ -1,12 +1,12 @@
 //variables
 //font
-$headFont : 'Josefin Slab', serif;
-$bodyFont : 'Lato', sans-serif;
+$headFont: "Josefin Slab", serif;
+$bodyFont: "Lato", sans-serif;
 //color
-$lightBlue : #e3f4f3;
-$neonGreen : #cfff31;
-$violet : #6056f9;
-$black : #000000;
+$lightBlue: #e3f4f3;
+$neonGreen: #cfff31;
+$violet: #6056f9;
+$black: #000000;
 
 html {
   font-size: 125%;
@@ -22,5 +22,14 @@ html {
   text-align: center;
 }
 
+button {
+  margin: 5px;
+  border-radius: 5px;
+  background-color: none;
 
-
+  &:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    transform: scale3d(0.95, 0.95, 1);
+  }
+}
