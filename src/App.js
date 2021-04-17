@@ -6,11 +6,14 @@ import "./App.scss";
 import {useState, useEffect} from 'react';
 import Score from './Score';
 import QuestionTracker from './QuestionTracker'
+import GameOver from './GameOver';
 
 ;function App() {
     const [gameData, setGameData] = useState({});
-    const [gameCount, setGameCount] = useState(0)
+    const [gameCount, setGameCount] = useState(1)
     const [gamePoints, setGamePoints] = useState(0);
+    const [gameOver, setGameOver] = useState(false);
+
 
     useEffect( ()=>{
       const searchHomophone = () => {
@@ -40,23 +43,35 @@ import QuestionTracker from './QuestionTracker'
       searchHomophone();
     },[gameCount])
     
+    useEffect (() => {
+      if (gameCount >= 11){
+        setGameOver(true);
+      }
+    }, [gameCount])
 
   return (
     <div className="App">
-      <Timer />
-      <QuestionTracker gameCount={gameCount}/>
-      <Score gamePoints={gamePoints}/>
       
-      <MiniQuiz 
-      gameCount={gameCount}
-      setGameCount={setGameCount}
+      {gameOver
+        ? <GameOver />
+        : 
+        <>
+        <Timer />
+        <QuestionTracker gameCount={gameCount} gameOver={gameOver}/>
+        <Score gamePoints={gamePoints}/>
+      
+        <MiniQuiz 
+          gameCount={gameCount}
+          setGameCount={setGameCount}
 
-      gamePoints={gamePoints}
-      setGamePoints={setGamePoints}
+          gamePoints={gamePoints}
+          setGamePoints={setGamePoints}
 
-      gameData={gameData}
-      setGameData={setGameData}
-      />
+          gameData={gameData}
+          setGameData={setGameData}
+        />
+        </>
+      }
       
     </div>
   );
