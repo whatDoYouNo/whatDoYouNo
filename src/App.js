@@ -13,6 +13,7 @@ import GameOver from './GameOver';
     const [gameCount, setGameCount] = useState(1)
     const [gamePoints, setGamePoints] = useState(0);
     const [gameOver, setGameOver] = useState(false);
+    const [timer, setTimer] = useState(0);
 
 
     useEffect( ()=>{
@@ -53,10 +54,10 @@ import GameOver from './GameOver';
     <div className="App">
       
       {gameOver
-        ? <GameOver />
+        ? <GameOver gamePoints={gamePoints} timer={timer}/>
         : 
         <>
-        <Timer />
+        <Timer gameCount={gameCount} setTimer={setTimer}/>
         <QuestionTracker gameCount={gameCount} gameOver={gameOver}/>
         <Score gamePoints={gamePoints}/>
       
