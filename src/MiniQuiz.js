@@ -1,46 +1,14 @@
 import homophones from './homophones';
-import {useState, useEffect} from 'react';
 
-const MiniQuiz = () => {
 
-    const [gameData, setGameData] = useState({});
-    const [gameCount, setGameCount] = useState(0)
+const MiniQuiz = ({gameCount, setGameCount, gamePoints, setGamePoints, gameData}) => {
+
+
     const randomBool = Boolean(Math.round(Math.random()));
-    const [gamePoints, setGamePoints] = useState(0);
     const handleClick = () => {
         setGameCount(gameCount+1);
         setGamePoints(gamePoints+1);
     }
-
-    useEffect( ()=>{
-        const searchHomophone = () => {
-            const index = Math.floor(Math.random() * homophones.length);
-            console.log(index);
-            const url = new URL(`https://api.datamuse.com/words`);
-            url.search = new URLSearchParams({
-                rel_hom : homophones[index],
-                md: `d`
-            });
-    
-            fetch(url)
-            .then( res => res.json())
-            .then( (jsonData) => {
-                console.log(jsonData);
-                if (jsonData[0] !== undefined && jsonData[0].defs !== undefined) {
-                    setGameData({
-                    wrong : homophones[index],
-                    answer : jsonData[0].word,
-                    definition : jsonData[0].defs[0]
-                    })
-                } else {
-                    searchHomophone(homophones);
-                }
-            })  
-        }
-        
-
-        searchHomophone();
-    },[gameCount])
 
     return (
         <section>
