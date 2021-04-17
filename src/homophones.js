@@ -1,4 +1,4 @@
-export const homophones = [
+const homophones = [
   "accessary",
   "ail",
   "air",
@@ -433,3 +433,5 @@ export const homophones = [
   "yaw",
   "yoke",
 ];
+
+export default homophones;
