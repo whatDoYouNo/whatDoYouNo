@@ -8,8 +8,6 @@ const Timer = () => {
         startTimer();
       },[]);
 
-
-
     const startTimer = () =>{
         //timer that updates the value of minutes and seconds every second
         let interval = setInterval ( () => {
