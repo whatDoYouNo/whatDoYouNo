@@ -4,8 +4,10 @@ import Timer from './Timer';
 import homophones from './homophones';
 import "./App.scss";
 import {useState, useEffect} from 'react';
+import Score from './Score';
+import QuestionTracker from './QuestionTracker'
 
-function App() {
+;function App() {
     const [gameData, setGameData] = useState({});
     const [gameCount, setGameCount] = useState(0)
     const [gamePoints, setGamePoints] = useState(0);
@@ -42,6 +44,9 @@ function App() {
   return (
     <div className="App">
       <Timer />
+      <QuestionTracker gameCount={gameCount}/>
+      <Score gamePoints={gamePoints}/>
+      
       <MiniQuiz 
       gameCount={gameCount}
       setGameCount={setGameCount}
