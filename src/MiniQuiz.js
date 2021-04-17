@@ -7,6 +7,10 @@ const MiniQuiz = () => {
     const [gameCount, setGameCount] = useState(0)
     const randomBool = Boolean(Math.round(Math.random()));
     const [gamePoints, setGamePoints] = useState(0);
+    const handleClick = () => {
+        setGameCount(gameCount+1);
+        setGamePoints(gamePoints+1);
+    }
 
     useEffect( ()=>{
         const searchHomophone = () => {
@@ -44,8 +48,13 @@ const MiniQuiz = () => {
             {/*<button onClick={()=>setGameCount(gameCount+1)}>{gameData.answer}</button>*/}
               
             
-            {randomBool? <button onClick={()=>setGameCount(gameCount+1)}>{gameData.answer}</button> : <button>{gameData.wrong}</button>}
-            {randomBool? <button onClick={()=>setGameCount(gameCount+1)}>{gameData.wrong}</button> : <button >{gameData.answer}</button>}
+            {randomBool
+            ? <button onClick={handleClick} >{gameData.answer}</button> 
+            : <button onClick={()=>setGameCount(gameCount+1)}>{gameData.wrong}</button>}
+
+            {randomBool
+            ? <button onClick={()=>setGameCount(gameCount+1)}>{gameData.wrong}</button> 
+            : <button onClick={handleClick}>{gameData.answer}</button>}
             
             {/* Initial boolean randomizer function that will give us a value of true or false*/} 
             {/* Check if the the value is true?*/} 
