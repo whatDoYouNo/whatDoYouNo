@@ -10,7 +10,9 @@ import GameOver from "./GameOver";
 import HighScore from "./HighScore";
 
 function App() {
-  const [gameData, setGameData] = useState({});
+  const [gameData, setGameData] = useState({
+    definition: ''
+  });
   const [gameCount, setGameCount] = useState(1);
   const [gamePoints, setGamePoints] = useState(0);
   const [gameOver, setGameOver] = useState(false);
@@ -19,7 +21,7 @@ function App() {
   useEffect(() => {
     const searchHomophone = () => {
       const index = Math.floor(Math.random() * homophones.length);
-      console.log(index);
+      // console.log(index);
       const url = new URL(`https://api.datamuse.com/words`);
       url.search = new URLSearchParams({
         rel_hom: homophones[index],
@@ -29,7 +31,7 @@ function App() {
       fetch(url)
         .then((res) => res.json())
         .then((jsonData) => {
-          console.log(jsonData);
+          // console.log(jsonData);
           if (jsonData[0] !== undefined && jsonData[0].defs !== undefined) {
             setGameData({
               wrong: homophones[index],

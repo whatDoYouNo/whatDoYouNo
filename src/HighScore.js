@@ -22,7 +22,6 @@ const HighScore = () => {
       setHighScores(newState);
     });
   }, []);
-  console.log(highScores);
   return (
     <>
       <h1>HighScore</h1>

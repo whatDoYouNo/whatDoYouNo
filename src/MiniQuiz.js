@@ -1,4 +1,5 @@
 import homophones from "./homophones";
+import {useEffect} from 'react';
 
 const MiniQuiz = ({
   gameCount,
@@ -15,7 +16,8 @@ const MiniQuiz = ({
 
   return (
     <section>
-      <p>{gameData.definition}</p>
+   
+      <p>{gameData.definition.slice(gameData.definition.indexOf("\t"))}</p>
       {/*<button onClick={()=>setGameCount(gameCount+1)}>{gameData.answer}</button>*/}
 
       {randomBool ? (
