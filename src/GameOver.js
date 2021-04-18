@@ -11,7 +11,6 @@ const GameOver = ({ gamePoints, timer }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const dbRef = firebase.database().ref();
-
     dbRef.push({
       name: username,
       time: timer,
@@ -20,6 +19,10 @@ const GameOver = ({ gamePoints, timer }) => {
 
     setUsername("");
   };
+
+  const handleNoFame = () => {
+    
+  }
 
   return (
     <>
@@ -36,7 +39,10 @@ const GameOver = ({ gamePoints, timer }) => {
           onChange={(e) => setUsername(e.target.value)}
         />
         <button type="submit" onClick={handleSubmit}>
-          Submit
+          Submit to leader board
+        </button>
+        <button onClick={handleNoFame}>
+          I dont want no fame.
         </button>
       </form>
     </>
