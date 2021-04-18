@@ -32,6 +32,7 @@ const GameOver = ({ gamePoints, timer }) => {
         <input
           type="text"
           name="usernameInput"
+          value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <button type="submit" onClick={handleSubmit}>
