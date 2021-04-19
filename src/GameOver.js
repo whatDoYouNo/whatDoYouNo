@@ -26,9 +26,9 @@ const GameOver = ({ gamePoints, timer }) => {
 
   return (
     <section className="gameOver">
-      <h2>Game Over</h2>
-      <h3>Your score: {gamePoints}</h3>
-      <h3>Time: {timer}</h3>
+      <h2><span>G</span><span>a</span><span>m</span><span>e</span> <span>O</span><span>v</span><span>e</span><span>r</span></h2>
+      <h3>Your score : {gamePoints}</h3>
+      <h3>Time : {timer}</h3>
 
       <form action="submit">
         <label htmlFor="usernameInput"> Username </label>

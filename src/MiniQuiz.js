@@ -1,6 +1,3 @@
-import homophones from "./homophones";
-import {useEffect} from 'react';
-
 const MiniQuiz = ({
   gameCount,
   setGameCount,

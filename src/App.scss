@@ -23,7 +23,8 @@ html {
 }
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: $headFont;
   margin: 0;
 }
@@ -60,7 +61,7 @@ button {
 
 //header styles
 header {
-  height: 20vh;
+  height: 25vh;
   background-color: $black;
   display: flex;
   justify-content: center;
@@ -69,6 +70,42 @@ header {
   h1 {
     color: $violet;
     font-size: 3rem;
+    letter-spacing: 0.2rem;
+
+    span {
+      position: relative;
+      text-shadow: 0px 0px 5px $neonGreen
+    }
+    span:nth-child(2n) {
+      top: -5px;
+    }
+    span:nth-child(3n) {
+      top: 5px;
+    }
+    span:nth-child(4n) {
+      top: -2px;
+    }
+    span:nth-child(7) {
+      top: -8px;
+    }
+    span:nth-child(9) {
+      top: -8px;
+    }
+    span:nth-child(10) {
+      top: 10px;
+    }
+    span:nth-child(11) {
+      top: -10px;
+    }
+    span:last-child {
+      top: 20px;
+      right: 10px;
+      color: transparent;
+      font-size: 8rem;
+      font-weight: bold;
+      text-shadow: 0 0 10px $neonGreen, 5px 5px 20px $neonGreen ;
+      
+    }
   }
 }
 
@@ -80,6 +117,7 @@ main {
     padding: 20px;
     text-transform: uppercase;
     letter-spacing: 0.5rem;
+    text-shadow: 0 0 10px $black;
   }
   h3 {
     font-size: 1.5rem;
@@ -136,6 +174,15 @@ main {
 .gameOver {
   h2 {
     color: $neonGreen;
+    span {
+      position: relative;
+    }
+    span:nth-child(2n) {
+      top: 5px;
+    }
+    span:nth-child(3n) {
+      top: -5px;
+    }
   }
   label,
   input {
@@ -155,25 +202,51 @@ main {
 }
 
 .leaderBoard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   h2 {
     color: $neonGreen;
-    span:nth-child(2n) {
+
+    span {
       position: relative;
+    }
+    span:nth-child(2n) {
       top: -5px;
     }
     span:nth-child(3n) {
-      position: relative;
       top: 5px;
     }
     span:nth-child(4n) {
-      position: relative;
       top: -2px;
     }
     span:nth-child(7) {
-      position: relative;
       top: -8px;
     }
   }
+
+  ul{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    li {
+      width:100%;
+      margin: 5px;
+      padding: 5px;
+      display: flex;
+      background-color: $lightBlue;
+      border-radius: 10px;
+    }
+    h4,
+    span {
+      width: 25%;
+    }
+    h4 {
+      text-transform: uppercase;
+    }
+  } 
 }
 //footer styles
 footer {
