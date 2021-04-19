@@ -11,6 +11,7 @@ import QuestionTracker from "./QuestionTracker";
 import GameOver from "./GameOver";
 import HighScore from "./HighScore";
 import Footer from "./Footer";
+import LandingPage from "./LandingPage";
 
 function App() {
   const [gameData, setGameData] = useState({
@@ -62,10 +63,7 @@ function App() {
       <main className="wrapper">
         <Router>
           <Route exact path="/">
-            <div>
-              <p>Landing Page</p>
-              <Link to="/Arcade">Arcade</Link>
-            </div>
+            <LandingPage />
           </Route>
 
           <Route path="/Arcade">
