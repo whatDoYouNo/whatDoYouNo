@@ -19,20 +19,42 @@ const HighScore = () => {
         });
       }
 
+      newState.sort((a, b) =>
+        a.score < b.score
+          ? 1
+          : a.score === b.score
+          ? a.time > b.time
+            ? 1
+            : -1
+          : -1
+      );
+
       setHighScores(newState);
     });
   }, []);
+
   return (
     <section className="leaderBoard">
       <h2>
-        <span>L</span><span>e</span><span>a</span><span>d</span><span>e</span><span>r</span><span>B</span><span>o</span><span>a</span><span>r</span><span>d</span></h2>
+        <span>L</span>
+        <span>e</span>
+        <span>a</span>
+        <span>d</span>
+        <span>e</span>
+        <span>r</span>
+        <span>B</span>
+        <span>o</span>
+        <span>a</span>
+        <span>r</span>
+        <span>d</span>
+      </h2>
 
       <ul>
         <li>
-            <h4>Ranking</h4>
-            <h4>Name</h4>
-            <h4>Score</h4>
-            <h4>Time</h4>
+          <h4>Ranking</h4>
+          <h4>Name</h4>
+          <h4>Score</h4>
+          <h4>Time</h4>
         </li>
         {highScores.map((highscore, index) => {
           const { name, score, time } = highscore;
