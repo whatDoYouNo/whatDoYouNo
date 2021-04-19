@@ -1,6 +1,6 @@
 const QuestionTracker = ({gameCount, gameOver}) => {
     return(
-        <h2>question: {gameCount}</h2>
+        <h3 className="questionCount">question : {gameCount}</h3>
     )
 }
 

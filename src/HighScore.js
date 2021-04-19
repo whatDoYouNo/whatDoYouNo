@@ -23,8 +23,9 @@ const HighScore = () => {
     });
   }, []);
   return (
-    <>
-      <h1>HighScore</h1>
+    <section className="leaderBoard">
+      <h2>
+        <span>L</span><span>e</span><span>a</span><span>d</span><span>e</span><span>r</span><span>B</span><span>o</span><span>a</span><span>r</span><span>d</span></h2>
 
       <ul>
         {highScores.map((highscore, index) => {
@@ -38,7 +39,7 @@ const HighScore = () => {
           );
         })}
       </ul>
-    </>
+    </section>
   );
 };
 

@@ -8,28 +8,207 @@ $neonGreen: #cfff31;
 $violet: #6056f9;
 $black: #000000;
 
+//base styles
 html {
   font-size: 125%;
 }
-
 .wrapper {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .App {
+  background-color: $violet;
   text-align: center;
+}
+h1,
+h2,
+h3 {
+  font-family: $headFont;
+  margin: 0;
+}
+p,
+a,
+li,
+label,
+input,
+button {
+  font-family: $bodyFont;
+  font-size: 1rem;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+a{
+  text-decoration: none ;
+  color: $black;
 }
 
 button {
-  margin: 5px;
-  border-radius: 5px;
-  background-color: none;
+  background-color: $neonGreen;
+  margin: 10px;
+  padding: 10px;
 
   &:hover {
     transition: 0.3s;
     cursor: pointer;
-    transform: scale3d(0.95, 0.95, 1);
+    transform: scale3d(1.05, 1.05, 1);
   }
+}
+
+//header styles
+header {
+  height: 20vh;
+  background-color: $black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    color: $violet;
+    font-size: 3rem;
+  }
+}
+
+//main styles
+main {
+  padding: 40px;
+  h2 {
+    font-size: 2rem;
+    padding: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    padding: 20px;
+  }
+  .timerBar {
+    display: flex;
+
+  }
+  .timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $neonGreen;
+    background-color: $black;
+    padding: 5px 15px;
+    margin: 0 auto;
+    font-size: 2rem;
+    .minute,
+    .second {
+      width: 100px;
+      display: block;
+    }
+  }
+  .questionCount,
+  .scoreCount {
+    text-transform: uppercase;
+  }
+}
+
+.miniQuiz {
+  padding: 20px;
+  background-color: $lightBlue;
+  margin: 20px auto;
+  border-radius: 10px;
+
+  .definition,
+  button {
+    font-size: 1.5rem;
+  }
+
+  .definition::first-letter {
+    text-transform: uppercase;
+  }
+
+  button {
+    margin: 10px 50px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+}
+
+.gameOver {
+  h2 {
+    color: $neonGreen;
+  }
+  label,
+  input {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  input{
+    background-color: $lightBlue;
+    border: 3px solid $neonGreen;
+  }
+
+  input,
+  button {
+    border-radius: 10px;
+  }
+}
+
+.leaderBoard {
+  h2 {
+    color: $neonGreen;
+    span:nth-child(2n) {
+      position: relative;
+      top: -5px;
+    }
+    span:nth-child(3n) {
+      position: relative;
+      top: 5px;
+    }
+    span:nth-child(4n) {
+      position: relative;
+      top: -2px;
+    }
+    span:nth-child(7) {
+      position: relative;
+      top: -8px;
+    }
+  }
+}
+//footer styles
+footer {
+  background-color: $neonGreen;
+  padding: 40px 0 20px;
+  
+  h2 {
+    color: $violet;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    color: $violet;
+    font-size: 0.9rem;
+    &:hover,
+    &:focus {
+      color: $black;
+    }
+  }
+  
+  div {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+
+    section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
 }

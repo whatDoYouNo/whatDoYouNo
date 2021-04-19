@@ -25,10 +25,10 @@ const GameOver = ({ gamePoints, timer }) => {
   }
 
   return (
-    <>
-      <h1>Game Over</h1>
-      <h1>Your score: {gamePoints}</h1>
-      <h1>Time: {timer}</h1>
+    <section className="gameOver">
+      <h2>Game Over</h2>
+      <h3>Your score: {gamePoints}</h3>
+      <h3>Time: {timer}</h3>
 
       <form action="submit">
         <label htmlFor="usernameInput"> Username </label>
@@ -39,13 +39,13 @@ const GameOver = ({ gamePoints, timer }) => {
           onChange={(e) => setUsername(e.target.value)}
         />
         <button type="submit" onClick={handleSubmit}>
-          Submit to leader board
+          Submit to Leaderboard
         </button>
         <button onClick={handleNoFame}>
           I dont want no fame.
         </button>
       </form>
-    </>
+    </section>
   );
 };
 

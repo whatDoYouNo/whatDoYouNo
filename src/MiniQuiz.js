@@ -15,9 +15,9 @@ const MiniQuiz = ({
   };
 
   return (
-    <section>
+    <section className="miniQuiz">
    
-      <p>{gameData.definition.slice(gameData.definition.indexOf("\t"))}</p>
+      <p className="definition">{gameData.definition.slice(gameData.definition.indexOf("\t"))}</p>
       {/*<button onClick={()=>setGameCount(gameCount+1)}>{gameData.answer}</button>*/}
 
       {randomBool ? (

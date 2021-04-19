@@ -1,6 +1,6 @@
 const Score = ({gamePoints}) => {
     return(
-        <h2>score:{gamePoints}</h2>
+        <h3 className="scoreCount">score : {gamePoints}</h3>
     )
 }
 

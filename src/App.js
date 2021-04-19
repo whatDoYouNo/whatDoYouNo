@@ -1,13 +1,16 @@
 import firebase from "./firebase";
+import { useState, useEffect } from "react";
+import "./App.scss";
+
+import Header from './Header';
+import homophones from "./homophones";
 import MiniQuiz from "./MiniQuiz";
 import Timer from "./Timer";
-import homophones from "./homophones";
-import "./App.scss";
-import { useState, useEffect } from "react";
 import Score from "./Score";
 import QuestionTracker from "./QuestionTracker";
 import GameOver from "./GameOver";
 import HighScore from "./HighScore";
+import Footer from "./Footer";
 
 function App() {
   const [gameData, setGameData] = useState({
@@ -54,13 +57,20 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
+
+      <main className="wrapper">
       {gameOver ? (
         <GameOver gamePoints={gamePoints} timer={timer} />
       ) : (
         <>
-          <Timer setTimer={setTimer} />
-          <QuestionTracker gameCount={gameCount} gameOver={gameOver} />
-          <Score gamePoints={gamePoints} />
+          <div className="timerBar">
+            <QuestionTracker gameCount={gameCount} gameOver={gameOver} />
+            <Timer setTimer={setTimer} />
+            <Score gamePoints={gamePoints} />
+
+          </div>
+          
 
           <MiniQuiz
             gameCount={gameCount}
@@ -74,6 +84,10 @@ function App() {
           <HighScore />
         </>
       )}
+      </main>
+
+      <Footer />
+      
     </div>
   );
 }
