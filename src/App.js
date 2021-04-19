@@ -63,7 +63,12 @@ function App() {
       <main className="wrapper">
         <Router>
           <Route exact path="/">
-            <LandingPage />
+            <LandingPage
+              setGameCount={setGameCount}
+              setGamePoints={setGamePoints}
+              setGameOver={setGameOver}
+              setTimer={setTimer}
+            />
           </Route>
 
           <Route path="/Arcade">
