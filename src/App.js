@@ -1,8 +1,8 @@
-
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.scss";
 
-import Header from './Header';
+import Header from "./Header";
 import homophones from "./homophones";
 import MiniQuiz from "./MiniQuiz";
 import Timer from "./Timer";
@@ -14,7 +14,7 @@ import Footer from "./Footer";
 
 function App() {
   const [gameData, setGameData] = useState({
-    definition: ''
+    definition: "",
   });
   const [gameCount, setGameCount] = useState(1);
   const [gamePoints, setGamePoints] = useState(0);
@@ -60,34 +60,43 @@ function App() {
       <Header />
 
       <main className="wrapper">
-      {gameOver ? (
-        <GameOver gamePoints={gamePoints} timer={timer} />
-      ) : (
-        <>
-          <div className="timerBar">
-            <QuestionTracker gameCount={gameCount} gameOver={gameOver} />
-            <Timer setTimer={setTimer} />
-            <Score gamePoints={gamePoints} />
+        <Router>
+          <Route exact path="/">
+            <div>
+              <p>Landing Page</p>
+              <Link to="/Arcade">Arcade</Link>
+            </div>
+          </Route>
 
-          </div>
-          
+          <Route path="/Arcade">
+            {/* Arcade */}
+            {gameOver ? (
+              <GameOver gamePoints={gamePoints} timer={timer} />
+            ) : (
+              <>
+                <div className="timerBar">
+                  <QuestionTracker gameCount={gameCount} gameOver={gameOver} />
+                  <Timer setTimer={setTimer} />
+                  <Score gamePoints={gamePoints} />
+                </div>
 
-          <MiniQuiz
-            gameCount={gameCount}
-            setGameCount={setGameCount}
-            gamePoints={gamePoints}
-            setGamePoints={setGamePoints}
-            gameData={gameData}
-            setGameData={setGameData}
-          />
+                <MiniQuiz
+                  gameCount={gameCount}
+                  setGameCount={setGameCount}
+                  gamePoints={gamePoints}
+                  setGamePoints={setGamePoints}
+                  gameData={gameData}
+                  setGameData={setGameData}
+                />
 
-          <HighScore />
-        </>
-      )}
+                <HighScore />
+              </>
+            )}
+          </Route>
+        </Router>
       </main>
 
       <Footer />
-      
     </div>
   );
 }
