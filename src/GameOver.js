@@ -1,22 +1,24 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import firebase from "./firebase";
 
 const GameOver = ({ gamePoints, timer }) => {
   const [username, setUsername] = useState("");
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username!==''){
+    if (username !== "") {
       const dbRef = firebase.database().ref();
       dbRef.push({
         name: username,
         time: timer,
         score: gamePoints,
-      })
+      });
       setUsername("");
-     };
+    }
 
+    history.push("/");
   };
 
   return (
