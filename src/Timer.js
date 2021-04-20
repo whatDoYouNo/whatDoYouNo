@@ -9,6 +9,7 @@ const Timer = ({ setTimer }) => {
   useEffect(() => {
     startTimer();
 
+    //this will run when timer unmounts
     return () => {
       clearInterval(interval);
       setTimer(time);

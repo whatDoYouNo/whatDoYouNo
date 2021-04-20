@@ -1,3 +1,6 @@
+import LoadingWheel from './LoadingWheel';
+
+
 const MiniQuiz = ({
   gameCount,
   setGameCount,
@@ -13,25 +16,31 @@ const MiniQuiz = ({
 
   return (
     <section className="miniQuiz">
-   
-      <p className="definition">{gameData.definition.slice(gameData.definition.indexOf("\t"))}</p>
-      {/*<button onClick={()=>setGameCount(gameCount+1)}>{gameData.answer}</button>*/}
+      {
+        gameData.definition === ""
+          ? <LoadingWheel />
+          : <>
+            <p className="definition">{gameData.definition.slice(gameData.definition.indexOf("\t"))}</p>
+            {/*<button onClick={()=>setGameCount(gameCount+1)}>{gameData.answer}</button>*/}
 
-      {randomBool ? (
-        <button onClick={handleClick}>{gameData.answer}</button>
-      ) : (
-        <button onClick={() => setGameCount(gameCount + 1)}>
-          {gameData.wrong}
-        </button>
-      )}
+            {randomBool ? (
+              <button onClick={handleClick}>{gameData.answer}</button>
+            ) : (
+              <button onClick={() => setGameCount(gameCount + 1)}>
+                {gameData.wrong}
+              </button>
+            )}
 
-      {randomBool ? (
-        <button onClick={() => setGameCount(gameCount + 1)}>
-          {gameData.wrong}
-        </button>
-      ) : (
-        <button onClick={handleClick}>{gameData.answer}</button>
-      )}
+            {randomBool ? (
+              <button onClick={() => setGameCount(gameCount + 1)}>
+                {gameData.wrong}
+              </button>
+            ) : (
+              <button onClick={handleClick}>{gameData.answer}</button>
+            )}
+          </>
+      }
+
 
       {/* Initial boolean randomizer function that will give us a value of true or false*/}
       {/* Check if the the value is true?*/}
