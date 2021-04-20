@@ -60,6 +60,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <SideBar />
 
       <main className="wrapper">
         <Router>
@@ -96,7 +97,7 @@ function App() {
                   setGameData={setGameData}
                 />
 
-                <SideBar />
+
               </>
             )}
           </Route>

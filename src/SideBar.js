@@ -19,13 +19,8 @@ const handleClick = ()=>{
     return(
         <>
             <aside className="drawer" onClick={handleClick}>
-
                 <HighScore nameOfClass={nameOfClass} />
-
             </aside>
-
-
-
         </>
         
         

@@ -156,19 +156,22 @@ main {
   }
 }
 
+.quizContainer{
+  overflow: hidden;
+}
+
 .miniQuiz {
   padding: 20px;
   background-color: $lightBlue;
   margin: 20px auto;
   border-radius: 10px;
   height: 40vh;
+  transition: 0.25s;
 
   .definition,
   button {
     font-size: 1.2rem;
   }
-
-
 
   .definition::first-letter {
     text-transform: uppercase;
@@ -180,6 +183,11 @@ main {
     height: 150px;
     border-radius: 50%;
   }
+}
+
+.correct{
+  // transform: translateX(-100%);
+  background-color: green;
 }
 
 .arcadeContainer {
