@@ -21,8 +21,6 @@ const GameOver = ({ gamePoints, timer }) => {
     setUsername("");
   };
 
-  const handleNoFame = () => {};
-
   return (
     <section className="gameOver">
       <h2>
@@ -49,7 +47,7 @@ const GameOver = ({ gamePoints, timer }) => {
           Submit to Leaderboard
         </button>
         <Link to="/">
-          <button onClick={handleNoFame}>I dont want no fame.</button>
+          <button>I dont want no fame.</button>
         </Link>
       </form>
     </section>

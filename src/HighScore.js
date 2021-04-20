@@ -11,24 +11,25 @@ const HighScore = () => {
       const data = res.val();
       const newState = [];
 
+      //save the leaderboard data from firebase in an array
       for (let key in data) {
         newState.push({
           key: key,
           ...data[key],
-          // comments: [],
         });
       }
 
+      //sort rankings by score and time
       newState.sort((a, b) =>
         a.score < b.score
           ? 1
           : a.score === b.score
-          ? a.time > b.time
-            ? 1
+            ? a.time > b.time
+              ? 1
+              : -1
             : -1
-          : -1
       );
-
+      //set highScores state with array of sorted object data
       setHighScores(newState);
     });
   }, []);

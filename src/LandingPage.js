@@ -15,12 +15,15 @@ const LandingPage = ({
   };
 
   return (
-    <div className="arcadeContainer">
-      <h2>Welcome !!</h2>
+    <section className="arcadeContainer">
+      <h2><span>W</span><span>e</span><span>l</span><span>c</span><span>o</span><span>m</span><span>e</span> <span>!</span><span>!</span></h2>
+      <p>
+        You may think you no. But, Do you really know what you no? Try this homophones games and sea weather you know or knot.
+      </p>
       <Link to="/Arcade">
-        <button onClick={(e) => handleReset(e)}>Arcade</button>
+        <button onClick={(e) => handleReset(e)}>Enter Arcade</button>
       </Link>
-    </div>
+    </section>
   );
 };
 

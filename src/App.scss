@@ -79,7 +79,7 @@ header {
 
     span {
       position: relative;
-      text-shadow: 0px 0px 5px $neonGreen;
+      text-shadow: 0px 0px 30px $neonGreen;
     }
     span:nth-child(2n) {
       top: -5px;
@@ -106,16 +106,18 @@ header {
       top: 20px;
       right: 10px;
       color: transparent;
-      font-size: 8rem;
+      font-size: 6rem;
       font-weight: bold;
-      text-shadow: 0 0 10px $neonGreen, 5px 5px 20px $neonGreen;
+      text-shadow: 0 0 15px $neonGreen, 5px 5px 30px $neonGreen;
     }
   }
 }
 
 //main styles
 main {
+  min-height: 50vh;
   padding: 40px;
+  // overflow-y: auto;
   h2 {
     font-size: 2rem;
     padding: 20px;
@@ -125,10 +127,12 @@ main {
   }
   h3 {
     font-size: 1.5rem;
-    padding: 20px;
+    padding: 10px; 
   }
   .timerBar {
     display: flex;
+    justify-content: space-around;
+    align-items: stretch;
   }
   .timer {
     display: flex;
@@ -136,12 +140,12 @@ main {
     align-items: center;
     color: $neonGreen;
     background-color: $black;
-    padding: 5px 15px;
-    margin: 0 auto;
-    font-size: 2rem;
+    padding: 5px;
+    font-size: 1.8rem;
+    border-radius: 10px;
     .minute,
     .second {
-      width: 100px;
+      width: 80px;
       display: block;
     }
   }
@@ -159,7 +163,7 @@ main {
 
   .definition,
   button {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .definition::first-letter {
@@ -167,6 +171,29 @@ main {
   }
 
   button {
+    margin: 10px 50px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+}
+
+.arcadeContainer {
+  h2 {
+    color: $neonGreen;
+    span {
+      position: relative;
+    }
+    span:nth-child(2n) {
+      top: 5px;
+    }
+    span:nth-child(5n) {
+      top: -5px;
+    }
+  }
+  button {
+    color: $violet;
+    font-size: 1.5rem;
     margin: 10px 50px;
     width: 150px;
     height: 150px;
@@ -232,7 +259,7 @@ main {
     width: 75%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     li {
       width: 100%;
@@ -255,21 +282,21 @@ main {
 footer {
   height: 25vh;
   background-color: $neonGreen;
-  padding: 40px 0 20px;
+  padding: 20px 0;
 
   h2 {
     color: $violet;
     text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin: 0;
     padding: 0;
   }
   a {
     color: $violet;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     &:hover,
     &:focus {
       color: $black;
@@ -287,8 +314,4 @@ footer {
       align-items: flex-start;
     }
   }
-}
-
-main {
-  height: 50vh;
 }
