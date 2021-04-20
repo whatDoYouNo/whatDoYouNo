@@ -152,6 +152,7 @@ main {
   .questionCount,
   .scoreCount {
     text-transform: uppercase;
+    width: 25%
   }
 }
 
@@ -160,11 +161,14 @@ main {
   background-color: $lightBlue;
   margin: 20px auto;
   border-radius: 10px;
+  height: 40vh;
 
   .definition,
   button {
     font-size: 1.2rem;
   }
+
+
 
   .definition::first-letter {
     text-transform: uppercase;

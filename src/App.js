@@ -74,7 +74,10 @@ function App() {
           <Route path="/Arcade">
             {/* Arcade */}
             {gameOver ? (
-              <GameOver gamePoints={gamePoints} timer={timer} />
+              <>
+                <GameOver gamePoints={gamePoints} timer={timer} />
+                <HighScore />
+              </>
             ) : (
               <>
                 <div className="timerBar">

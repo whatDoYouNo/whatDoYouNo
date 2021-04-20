@@ -5,20 +5,18 @@ import firebase from "./firebase";
 const GameOver = ({ gamePoints, timer }) => {
   const [username, setUsername] = useState("");
 
-  // dbRef.push({
-  //   test: "IT WORKS",
-  // });
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    const dbRef = firebase.database().ref();
-    dbRef.push({
-      name: username,
-      time: timer,
-      score: gamePoints,
-    });
+    if (username!==''){
+      const dbRef = firebase.database().ref();
+      dbRef.push({
+        name: username,
+        time: timer,
+        score: gamePoints,
+      })
+      setUsername("");
+     };
 
-    setUsername("");
   };
 
   return (
