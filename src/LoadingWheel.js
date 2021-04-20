@@ -1,9 +1,9 @@
 const LoadingWheel = () => {
-    return(
-        <div className="spinWheel">
-            <h3>loading</h3>
-        </div>
-    )
-}
+  return (
+    <div className="spinWheelContainer">
+      <div className="spinWheel" />
+    </div>
+  );
+};
 
-export default LoadingWheel
+export default LoadingWheel;
