@@ -127,7 +127,7 @@ main {
   }
   h3 {
     font-size: 1.5rem;
-    padding: 10px; 
+    padding: 10px;
   }
   .timerBar {
     display: flex;
@@ -152,11 +152,11 @@ main {
   .questionCount,
   .scoreCount {
     text-transform: uppercase;
-    width: 25%
+    width: 25%;
   }
 }
 
-.quizContainer{
+.quizContainer {
   overflow: hidden;
 }
 
@@ -185,9 +185,14 @@ main {
   }
 }
 
-.correct{
+.correct {
   // transform: translateX(-100%);
   background-color: green;
+}
+
+.incorrect {
+  // transform: translateX(-100%);
+  background-color: red;
 }
 
 .arcadeContainer {
@@ -247,9 +252,9 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position:absolute;
+  position: absolute;
   transition: 0.3s;
-  left:100%;
+  left: 100%;
   h2 {
     color: $neonGreen;
 
@@ -294,9 +299,8 @@ main {
   }
 }
 
-.leaderBoard.active{
+.leaderBoard.active {
   transform: translateX(-100%);
-  
 }
 
 //footer styles
@@ -337,12 +341,11 @@ footer {
   }
 }
 
-.drawer{
+.drawer {
   height: 100vh;
   width: 2.5vw;
   background-color: red;
   position: fixed;
-  right:0;
-  top:0;
-
+  right: 0;
+  top: 0;
 }
