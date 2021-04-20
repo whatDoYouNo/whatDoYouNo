@@ -12,6 +12,7 @@ import GameOver from "./GameOver";
 import HighScore from "./HighScore";
 import Footer from "./Footer";
 import LandingPage from "./LandingPage";
+import SideBar from "./SideBar";
 
 function App() {
   const [gameData, setGameData] = useState({
@@ -95,7 +96,7 @@ function App() {
                   setGameData={setGameData}
                 />
 
-                <HighScore />
+                <SideBar />
               </>
             )}
           </Route>

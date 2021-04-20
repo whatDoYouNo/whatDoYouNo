@@ -239,6 +239,9 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position:absolute;
+  transition: 0.3s;
+  left:100%;
   h2 {
     color: $neonGreen;
 
@@ -282,6 +285,12 @@ main {
     }
   }
 }
+
+.leaderBoard.active{
+  transform: translateX(-100%);
+  
+}
+
 //footer styles
 footer {
   height: 25vh;
@@ -318,4 +327,14 @@ footer {
       align-items: flex-start;
     }
   }
+}
+
+.drawer{
+  height: 100vh;
+  width: 2.5vw;
+  background-color: red;
+  position: fixed;
+  right:0;
+  top:0;
+
 }

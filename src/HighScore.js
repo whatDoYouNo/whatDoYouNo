@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import firebase from "./firebase";
 
-const HighScore = () => {
+const HighScore = ({nameOfClass}) => {
   const [highScores, setHighScores] = useState([]);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const HighScore = () => {
   }, []);
 
   return (
-    <section className="leaderBoard">
+    <section className={nameOfClass}>
       <h2>
         <span>L</span>
         <span>e</span>
