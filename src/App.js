@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.scss";
 
 import Header from "./Header";
@@ -60,7 +60,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SideBar />
+      
 
       <main className="wrapper">
         <Router>
@@ -103,7 +103,7 @@ function App() {
           </Route>
         </Router>
       </main>
-
+      <SideBar />
       <Footer />
     </div>
   );

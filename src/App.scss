@@ -153,48 +153,13 @@ main {
   .scoreCount {
     text-transform: uppercase;
     width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
-
-.quizContainer {
-  overflow: hidden;
-}
-
-.miniQuiz {
-  padding: 20px;
-  background-color: $lightBlue;
-  margin: 20px auto;
-  border-radius: 10px;
-  height: 40vh;
-  transition: 0.25s;
-
-  .definition,
-  button {
-    font-size: 1.2rem;
-  }
-
-  .definition::first-letter {
-    text-transform: uppercase;
-  }
-
-  button {
-    margin: 10px 50px;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-  }
-}
-
-.correct {
-  // transform: translateX(-100%);
-  background-color: green;
-}
-
-.incorrect {
-  // transform: translateX(-100%);
-  background-color: red;
-}
-
+//landing page styles
 .arcadeContainer {
   h2 {
     color: $neonGreen;
@@ -208,6 +173,9 @@ main {
       top: -5px;
     }
   }
+  p {
+    font-size: 1.2rem;
+  }
   button {
     color: $violet;
     font-size: 1.5rem;
@@ -217,6 +185,53 @@ main {
     border-radius: 50%;
   }
 }
+//mini quiz styles
+.quizContainer {
+  overflow: hidden;
+}
+.spinWheelContainer {
+  margin: auto;
+}
+.miniQuiz {
+  background-color: $lightBlue;
+  padding: 20px 20px 40px;
+  margin: 20px auto;
+  border-radius: 10px;
+  height: 45vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.25s;
+
+  .definition,
+  button {
+    font-size: 1.2rem;
+  }
+
+  .definition::first-letter {
+    text-transform: uppercase;
+  }
+
+  button {
+    padding: 20px;
+    margin: 10px 50px;
+    width: 150px;
+    border-radius: 10px;
+  }
+}
+
+.correct {
+  // transform: translateX(-100%);
+  background-color: green;
+}
+
+.incorrect {
+  // transform: translateX(-100%);
+  background-color: red;
+}
+
+
 
 .gameOver {
   h2 {
@@ -231,32 +246,74 @@ main {
       top: -5px;
     }
   }
+  form {
+    padding: 30px 0;
+  }
   label,
-  input {
+  input,
+  button {
     margin: 10px;
     padding: 10px;
   }
-
+  label {
+    color: $neonGreen;
+    text-transform: uppercase;
+  }
   input {
     background-color: $lightBlue;
     border: 3px solid $neonGreen;
   }
-
   input,
   button {
     border-radius: 10px;
   }
 }
-
+.drawer {
+  height: 100vh;
+  width: 5vw;
+  background-color: rgba(255, 255, 255, 0.3);
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  h2.vertical {
+    color: $neonGreen;
+    opacity: 0.75;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    span {
+      font-weight: bold;
+      text-shadow: 0 0 10px $black;
+      
+    }
+  }
+}
 .leaderBoard {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 50vw;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: $violet;
+  padding: 30px;
+  border-radius: 10px;
+  z-index: 100;
   position: absolute;
   transition: 0.3s;
   left: 100%;
   h2 {
     color: $neonGreen;
+    font-size: 2rem;
+    padding: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    text-shadow: 0 0 10px $black;
 
     span {
       position: relative;
@@ -276,7 +333,7 @@ main {
   }
 
   ul {
-    width: 75%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -288,6 +345,21 @@ main {
       display: flex;
       background-color: $lightBlue;
       border-radius: 10px;
+    }
+    li:nth-child(2){
+      background-image: 
+        radial-gradient( at top left,goldenrod,transparent ),
+        radial-gradient( at bottom right,goldenrod,transparent );
+    }
+    li:nth-child(3){
+      background-image: 
+      radial-gradient( at top left,silver,transparent ),
+      radial-gradient( at bottom right,silver,transparent );
+    }
+    li:nth-child(4){
+      background-image: 
+      radial-gradient( at top left,#da8a67,transparent ),
+      radial-gradient( at bottom right,#da8a67,transparent );
     }
     h4,
     span {
@@ -332,6 +404,9 @@ footer {
   height: 25vh;
   background-color: $neonGreen;
   padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   h2 {
     color: $violet;
@@ -342,6 +417,7 @@ footer {
     font-size: 0.8rem;
     margin: 0;
     padding: 0;
+    text-align: left;
   }
   a {
     color: $violet;
@@ -365,11 +441,157 @@ footer {
   }
 }
 
-.drawer {
-  height: 100vh;
-  width: 2.5vw;
-  background-color: red;
-  position: fixed;
-  right: 0;
-  top: 0;
+//////////////////////////////////////////////////////
+////////////////// media query styles//////////////////
+//////////////////////////////////////////////////////
+@media (max-width:925px) {
+  .leaderBoard {
+    h2 {
+      font-size: 1.5rem;
+      letter-spacing: 0.3rem;
+    }
+  }
+}
+
+@media (max-width:780px) {
+  main {
+    .timer {
+      font-size: 1.5rem;
+      .minute,
+      .second {
+        width: 50px;
+      }
+    }
+    .questionCount,
+    .scoreCount {
+      font-size: 1rem;
+    }
+  }
+
+  .miniQuiz {
+    .definition,
+    button {
+    font-size: 1rem;
+    }
+    button {
+      margin: 10px 10px;
+    }
+  }
+  .leaderBoard {
+    width: 75vw;
+  }
+}
+
+@media (max-width:620px) {
+  header {
+    h1 {
+      font-size: 2rem;
+      span:last-child {
+        position: absolute;
+        top: 40px;
+        right: 40%;
+        text-shadow: 0 0 15px $neonGreen, 5px 5px 30px $neonGreen;
+      }
+    }
+  }
+  main {
+    h2 {
+      font-size: 1.5rem;
+      padding: 20px 0px;
+      letter-spacing: 0.2rem;
+      text-shadow: 0 0 8px $black;
+    }
+    .timer {
+      font-size: 1.5rem;
+      .minute,
+      .second {
+        width: 40px;
+      }
+    }
+  }
+  .gameOver {
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+  .leaderBoard {
+    width: 100vw;
+  }
+}
+
+@media (max-width:530px) {
+
+  main {
+    padding: 20px 10px 20px;
+    .timerBar {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .miniQuiz {
+    padding: 10px;
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+    button {
+      padding: 15px;
+      margin: 5px;
+    }
+  }
+  
+  .drawer {
+    width: 8vw;
+  }
+  .leaderBoard {
+    li,
+    h4 {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media (max-width:420px) {
+  header {
+    h1 {
+      font-size: 1.5rem;
+      letter-spacing: 0rem;
+      span:last-child {
+        position: absolute;
+        top: 40px;
+        right: 40%;
+        text-shadow: 0 0 15px $neonGreen, 5px 5px 30px $neonGreen;
+      }
+    }
+  }
+  .arcadeContainer {
+    p {
+      font-size: 1rem;
+    }
+  }
+  .miniQuiz {
+    .definition {
+      font-size: 0.9rem;
+    }
+    
+  }
+  .leaderBoard {
+    h2 {
+      font-size: 1.2rem;
+      letter-spacing: 0.1rem;
+    }
+  }
+
+  footer {
+    div {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      section {
+        align-items: center;
+      }
+    }  
+  }
 }

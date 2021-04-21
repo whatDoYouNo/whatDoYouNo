@@ -40,8 +40,7 @@ const MiniQuiz = ({
             <p className="definition">
               {gameData.definition.slice(gameData.definition.indexOf("\t"))}
             </p>
-            {/*<button onClick={()=>setGameCount(gameCount+1)}>{gameData.answer}</button>*/}
-
+            <div>
             {randomBool ? (
               <button onClick={handleCorrect}>{gameData.answer}</button>
             ) : (
@@ -53,6 +52,7 @@ const MiniQuiz = ({
             ) : (
               <button onClick={handleCorrect}>{gameData.answer}</button>
             )}
+            </div>
           </>
         )}
         {/* Initial boolean randomizer function that will give us a value of true or false*/}
