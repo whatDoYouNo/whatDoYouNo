@@ -1,37 +1,48 @@
 import LoadingWheel from "./LoadingWheel";
-import { useState } from "react";
+
 
 const MiniQuiz = ({
+  containerClass,
   gameCount,
   setGameCount,
   gamePoints,
   setGamePoints,
   gameData,
+  miniQuizClass,
+  setMiniQuizClass,
+  randomBool,
+  questionAvailable,
+  setQuestionAvailable
+ 
 }) => {
-  const [miniQuizClass, setMiniQuizClass] = useState("miniQuiz");
 
-  const randomBool = Boolean(Math.round(Math.random()));
   const handleCorrect = () => {
-    setGameCount(gameCount + 1);
-    setGamePoints(gamePoints + 1);
-    setMiniQuizClass("miniQuiz correct");
-    setTimeout(() => {
-      setMiniQuizClass("miniQuiz");
-    }, 250);
-  };
+    if (questionAvailable){
+      setGameCount(gameCount + 1);
+      setGamePoints(gamePoints + 1);
+      setMiniQuizClass("miniQuiz correct");
+      setQuestionAvailable(false);
+      setTimeout(() => {
+        setMiniQuizClass("miniQuiz");
+        setQuestionAvailable(true);
+      }, 1100);
+    };
+  }
 
   const handleIncorrect = () => {
-    setMiniQuizClass("miniQuiz incorrect");
-
-    setGameCount(gameCount + 1);
-
-    setTimeout(() => {
-      setMiniQuizClass("miniQuiz");
-    }, 250);
-  };
+    if (questionAvailable){
+      setMiniQuizClass("miniQuiz incorrect");
+      setGameCount(gameCount + 1);
+      setQuestionAvailable(false);
+      setTimeout(() => {
+        setMiniQuizClass("miniQuiz");
+        setQuestionAvailable(true);
+      }, 1100);
+    };
+  }
 
   return (
-    <div className="quizContainer">
+    <div className={containerClass}>
       <section className={miniQuizClass}>
         {gameData.definition === "" ? (
           <LoadingWheel />

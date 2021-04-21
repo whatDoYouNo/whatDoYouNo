@@ -12,6 +12,7 @@ const LandingPage = ({
     setGamePoints(0);
     setGameOver(false);
     setTimer(0);
+    
   };
 
   return (

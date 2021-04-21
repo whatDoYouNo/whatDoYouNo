@@ -186,9 +186,25 @@ main {
   }
 }
 //mini quiz styles
+.miniQuizContainer{
+  position: relative;
+  overflow: hidden;
+}
+
 .quizContainer {
   overflow: hidden;
 }
+
+.bufferContainer{
+
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 101%;
+  background-color:purple;
+  
+}
+
 .spinWheelContainer {
   margin: auto;
 }
@@ -202,7 +218,7 @@ main {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  transition: 0.25s;
+
 
   .definition,
   button {
@@ -219,17 +235,29 @@ main {
     width: 150px;
     border-radius: 10px;
   }
+  
 }
 
 .correct {
-  // transform: translateX(-100%);
+  transform: translateX(-101%);
   background-color: green;
+  transition: transform 1s, background-color 0.25s;
 }
 
 .incorrect {
-  // transform: translateX(-100%);
+  transform: translateX(-101%);
   background-color: red;
+  transition: transform 1s, background-color 0.25s;
 }
+
+.bufferContainer .correct,
+.bufferContainer .incorrect{
+  background-color: #e3f4f3;
+}
+
+
+
+
 
 
 
