@@ -52,7 +52,7 @@ const HighScore = ({nameOfClass}) => {
 
       <ul>
         <li>
-          <h4>Ranking</h4>
+          <h4>Rank</h4>
           <h4>Name</h4>
           <h4>Score</h4>
           <h4>Time</h4>
