@@ -66,7 +66,7 @@ button {
 
 //header styles
 header {
-  height: 25vh;
+  min-height: 25vh;
   background-color: $black;
   display: flex;
   justify-content: center;
@@ -183,6 +183,7 @@ main {
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    animation: bounce 1s ease-in-out infinite;
   }
 }
 //mini quiz styles
@@ -255,12 +256,7 @@ main {
   background-color: #e3f4f3;
 }
 
-
-
-
-
-
-
+//game finishing styles
 .gameOver {
   h2 {
     color: $neonGreen;
@@ -296,6 +292,7 @@ main {
     border-radius: 10px;
   }
 }
+
 .drawer {
   height: 100vh;
   width: 5vw;
@@ -317,10 +314,27 @@ main {
     span {
       font-weight: bold;
       text-shadow: 0 0 10px $black;
-      
+    }
+  }
+  &:hover h2.vertical,
+  &:focus h2.vertical{
+    opacity: 1;
+    transform: scale(1.05);
+    animation: bounce 1s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0% {
+      translate: 0px 0px;
+    }
+    50% {
+      translate: 0px 7px;
+    }
+    100% {
+      translate: 0px 0px;
     }
   }
 }
+main .leaderBoard,
 .leaderBoard {
   display: flex;
   flex-direction: column;
@@ -335,6 +349,11 @@ main {
   position: absolute;
   transition: 0.3s;
   left: 100%;
+  img {
+    max-width: 250px;
+    width: 40%;
+    min-width: 120px;
+  }
   h2 {
     color: $neonGreen;
     font-size: 2rem;
@@ -374,6 +393,9 @@ main {
       background-color: $lightBlue;
       border-radius: 10px;
     }
+    li:nth-child(1){
+      background-color: transparent;
+    }
     li:nth-child(2){
       background-image: 
         radial-gradient( at top left,goldenrod,transparent ),
@@ -394,6 +416,8 @@ main {
       width: 25%;
     }
     h4 {
+      color: $neonGreen;
+      text-shadow: 0 0 5px $black;
       text-transform: uppercase;
     }
   }
@@ -429,7 +453,7 @@ main {
 
 //footer styles
 footer {
-  height: 25vh;
+  min-height: 25vh;
   background-color: $neonGreen;
   padding: 20px 0;
   display: flex;

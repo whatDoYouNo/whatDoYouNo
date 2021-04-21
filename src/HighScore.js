@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import firebase from "./firebase";
+import trophy from './asset/trophy.svg'
 
 const HighScore = ({nameOfClass}) => {
   const [highScores, setHighScores] = useState([]);
@@ -36,6 +37,7 @@ const HighScore = ({nameOfClass}) => {
 
   return (
     <section className={nameOfClass}>
+      <img src={trophy} alt="trophy vector graphic"/>
       <h2>
         <span>L</span>
         <span>e</span>

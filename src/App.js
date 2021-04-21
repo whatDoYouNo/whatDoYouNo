@@ -102,7 +102,7 @@ useEffect(() => {
   return (
     <div className="App">
       <Header />
-      <SideBar />
+      
 
       <main className="wrapper">
         <Router>
@@ -121,7 +121,6 @@ useEffect(() => {
             {gameOver ? (
               <>
                 <GameOver gamePoints={gamePoints} timer={timer} />
-                <HighScore />
               </>
             ) : (
               <>
@@ -171,7 +170,8 @@ useEffect(() => {
           </Route>
         </Router>
       </main>
-
+      
+      <SideBar />
       <Footer />
     </div>
   );

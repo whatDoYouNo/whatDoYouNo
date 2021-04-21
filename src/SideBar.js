@@ -30,6 +30,7 @@ const SideBar = () => {
                     <span>a</span>
                     <span>r</span>
                     <span>d</span>
+                    <span>&lt;&lt;</span>
                 </h2>
                 <HighScore nameOfClass={nameOfClass} />
             </aside>
