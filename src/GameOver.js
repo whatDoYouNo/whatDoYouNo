@@ -1,25 +1,30 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import firebase from "./firebase";
 
 const GameOver = ({ gamePoints, timer }) => {
   const [username, setUsername] = useState("");
-
-  // dbRef.push({
-  //   test: "IT WORKS",
-  // });
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const dbRef = firebase.database().ref();
-    dbRef.push({
-      name: username,
-      time: timer,
-      score: gamePoints,
-    });
+    if (username !== "") {
+      const dbRef = firebase.database().ref();
+      dbRef.push({
+        name: username,
+        time: timer,
+        score: gamePoints,
+      });
+      setUsername("");
+    }
 
-    setUsername("");
+    history.push("/");
   };
+
+  const handleNoFame = (e) => {
+    e.preventDefault();
+    history.push("/");
+  }
 
   return (
     <section className="gameOver">
@@ -37,7 +42,7 @@ const GameOver = ({ gamePoints, timer }) => {
       <h3>Time : {timer}</h3>
 
       <form action="submit">
-        <label htmlFor="usernameInput"> Username </label>
+        <label htmlFor="usernameInput"> Name </label>
         <input
           type="text"
           name="usernameInput"
@@ -47,9 +52,7 @@ const GameOver = ({ gamePoints, timer }) => {
         <button type="submit" onClick={handleSubmit}>
           Submit to Leaderboard
         </button>
-        <Link to="/">
-          <button>I dont want no fame.</button>
-        </Link>
+        <button onClick={handleNoFame}>I dont want no fame.</button>
       </form>
     </section>
   );
