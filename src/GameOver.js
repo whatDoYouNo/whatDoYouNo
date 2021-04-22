@@ -47,6 +47,7 @@ const GameOver = ({ gamePoints, timer }) => {
         <span>e</span>
         <span>r</span>
       </h2>
+
       <h3>Your score : {gamePoints}</h3>
       <h3>Time : {timer}</h3>
 
