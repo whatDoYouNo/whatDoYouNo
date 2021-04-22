@@ -14,7 +14,8 @@ html {
 }
 
 body {
-  height: 100vh;
+  // height: 100vh;
+  overflow-x: hidden;
 }
 
 .wrapper {
@@ -188,7 +189,7 @@ main {
   }
 }
 //mini quiz styles
-.miniQuizContainer{
+.miniQuizContainer {
   position: relative;
   overflow: hidden;
 }
@@ -197,14 +198,12 @@ main {
   overflow: hidden;
 }
 
-.bufferContainer{
-
+.bufferContainer {
   position: absolute;
   width: 100%;
   top: 0;
   left: 101%;
-  background-color:purple;
-  
+  background-color: purple;
 }
 
 .spinWheelContainer {
@@ -221,7 +220,6 @@ main {
   justify-content: space-between;
   align-items: center;
 
-
   .definition,
   button {
     font-size: 1.2rem;
@@ -237,7 +235,6 @@ main {
     width: 150px;
     border-radius: 10px;
   }
-  
 }
 
 .correct {
@@ -253,7 +250,7 @@ main {
 }
 
 .bufferContainer .correct,
-.bufferContainer .incorrect{
+.bufferContainer .incorrect {
   background-color: #e3f4f3;
 }
 
@@ -318,7 +315,7 @@ main {
     }
   }
   &:hover h2.vertical,
-  &:focus h2.vertical{
+  &:focus h2.vertical {
     opacity: 1;
     transform: scale(1.05);
     animation: bounce 1s ease-in-out infinite;
@@ -406,23 +403,20 @@ main .leaderBoard,
       background-color: $lightBlue;
       border-radius: 10px;
     }
-    li:nth-child(1){
+    li:nth-child(1) {
       background-color: transparent;
     }
-    li:nth-child(2){
-      background-image: 
-        radial-gradient( at top left,goldenrod,transparent ),
-        radial-gradient( at bottom right,goldenrod,transparent );
+    li:nth-child(2) {
+      background-image: radial-gradient(at top left, goldenrod, transparent),
+        radial-gradient(at bottom right, goldenrod, transparent);
     }
-    li:nth-child(3){
-      background-image: 
-      radial-gradient( at top left,silver,transparent ),
-      radial-gradient( at bottom right,silver,transparent );
+    li:nth-child(3) {
+      background-image: radial-gradient(at top left, silver, transparent),
+        radial-gradient(at bottom right, silver, transparent);
     }
-    li:nth-child(4){
-      background-image: 
-      radial-gradient( at top left,#da8a67,transparent ),
-      radial-gradient( at bottom right,#da8a67,transparent );
+    li:nth-child(4) {
+      background-image: radial-gradient(at top left, #da8a67, transparent),
+        radial-gradient(at bottom right, #da8a67, transparent);
     }
     h4,
     span {
@@ -518,7 +512,7 @@ footer {
 //////////////////////////////////////////////////////
 ////////////////// media query styles//////////////////
 //////////////////////////////////////////////////////
-@media (max-width:925px) {
+@media (max-width: 925px) {
   .leaderBoard {
     h2 {
       font-size: 1.5rem;
@@ -527,7 +521,7 @@ footer {
   }
 }
 
-@media (max-width:780px) {
+@media (max-width: 780px) {
   main {
     .timer {
       font-size: 1.5rem;
@@ -545,7 +539,7 @@ footer {
   .miniQuiz {
     .definition,
     button {
-    font-size: 1rem;
+      font-size: 1rem;
     }
     button {
       margin: 10px 10px;
@@ -556,7 +550,7 @@ footer {
   }
 }
 
-@media (max-width:620px) {
+@media (max-width: 620px) {
   header {
     h1 {
       font-size: 2rem;
@@ -595,8 +589,7 @@ footer {
   }
 }
 
-@media (max-width:530px) {
-
+@media (max-width: 530px) {
   main {
     padding: 20px 10px 20px;
     .timerBar {
@@ -615,7 +608,7 @@ footer {
       margin: 5px;
     }
   }
-  
+
   .drawer {
     width: 8vw;
   }
@@ -627,7 +620,7 @@ footer {
   }
 }
 
-@media (max-width:420px) {
+@media (max-width: 420px) {
   header {
     h1 {
       font-size: 1.5rem;
@@ -649,7 +642,6 @@ footer {
     .definition {
       font-size: 0.9rem;
     }
-    
   }
   .leaderBoard {
     h2 {
@@ -666,6 +658,6 @@ footer {
       section {
         align-items: center;
       }
-    }  
+    }
   }
 }

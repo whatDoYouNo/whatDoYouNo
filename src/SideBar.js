@@ -5,7 +5,7 @@ const SideBar = () => {
   const [sideBarActive, setSideBarActive] = useState(false);
   const [nameOfClass, setNameOfClass] = useState("leaderBoard");
 
-  const handleClick = () => {
+  const handleDrawer = () => {
     setSideBarActive(!sideBarActive);
     if (!sideBarActive) {
       setNameOfClass("leaderBoard active");
@@ -19,8 +19,8 @@ const SideBar = () => {
       <aside
         className="drawer"
         tabIndex="0"
-        onClick={handleClick}
-        onFocus={handleClick}
+        onClick={handleDrawer}
+        onFocus={handleDrawer}
       >
         <h2 className="vertical">
           <span>L</span>

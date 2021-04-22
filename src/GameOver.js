@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Confetti from "react-confetti";
 import { useHistory } from "react-router-dom";
 import firebase from "./firebase";
 
 const GameOver = ({ gamePoints, timer }) => {
   const [username, setUsername] = useState("");
   const history = useHistory();
-
+  const [isConfetti, setIsConfetti] = useState(true);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (username !== "") {
@@ -19,17 +20,24 @@ const GameOver = ({ gamePoints, timer }) => {
     }
     //back to landing site
     history.push("/");
-
   };
 
   const handleNoFame = (e) => {
     e.preventDefault();
     //back to landing site
     history.push("/");
-  }
+  };
+
+  setTimeout(() => {
+    setIsConfetti(false);
+  }, 10000);
 
   return (
     <section className="gameOver">
+      {isConfetti ? (
+        <Confetti width={window.innerWidth} height={window.innerHeight} />
+      ) : null}
+
       <h2>
         <span>G</span>
         <span>a</span>
