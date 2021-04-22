@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Confetti from "react-confetti";
 import { useHistory } from "react-router-dom";
 import firebase from "./firebase";

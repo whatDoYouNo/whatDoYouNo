@@ -1,5 +1,6 @@
-import { useState, useEffect,useRef } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect, useRef } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.scss";
 
 import Header from "./Header";
@@ -9,11 +10,9 @@ import Timer from "./Timer";
 import Score from "./Score";
 import QuestionTracker from "./QuestionTracker";
 import GameOver from "./GameOver";
-import HighScore from "./HighScore";
 import Footer from "./Footer";
 import LandingPage from "./LandingPage";
 import SideBar from "./SideBar";
-
 
 function App() {
   const [gameData, setGameData] = useState({
@@ -31,10 +30,7 @@ function App() {
   const [miniQuizClass, setMiniQuizClass] = useState("miniQuiz");
   const randomBool = useRef();
   const randomBool2 = useRef();
-  const [questionAvailable,setQuestionAvailable] = useState(true);
-  
-  
-
+  const [questionAvailable, setQuestionAvailable] = useState(true);
 
   const searchHomophone = (setFunction) => {
     const index = Math.floor(Math.random() * homophones.length);
@@ -59,38 +55,29 @@ function App() {
           searchHomophone(setFunction);
         }
       });
-  };  
-
+  };
 
   useEffect(() => {
-    randomBool.current= Boolean(Math.round(Math.random()))
-    randomBool2.current= Boolean(Math.round(Math.random()))
+    randomBool.current = Boolean(Math.round(Math.random()));
+    randomBool2.current = Boolean(Math.round(Math.random()));
     searchHomophone(setGameData);
     searchHomophone(setBuffer);
-     }, []);
+  }, []);
 
-
-useEffect(() => {
-  setTimeout(() => {
-    if(!initialRender){
-      
-    setGameData(buffer)
-    randomBool2.current=randomBool.current
-    setTimeout(()=>{
-      
-      searchHomophone(setBuffer);
-      randomBool.current= Boolean(Math.round(Math.random()))
-    },100)
-    } else {
-      setInitialRender(false)
-    };
-    
-
-    
-  },1000 );
+  useEffect(() => {
+    setTimeout(() => {
+      if (!initialRender) {
+        setGameData(buffer);
+        randomBool2.current = randomBool.current;
+        setTimeout(() => {
+          searchHomophone(setBuffer);
+          randomBool.current = Boolean(Math.round(Math.random()));
+        }, 100);
+      } else {
+        setInitialRender(false);
+      }
+    }, 1000);
   }, [gameCount]);
-
-
 
   useEffect(() => {
     if (gameCount >= 11) {
@@ -102,7 +89,6 @@ useEffect(() => {
   return (
     <div className="App">
       <Header />
-      
 
       <main className="wrapper">
         <Router>
@@ -130,8 +116,8 @@ useEffect(() => {
                   <Score gamePoints={gamePoints} />
                 </div>
                 <div className="miniQuizContainer">
-                <MiniQuiz
-                    containerClass={'bufferContainer'}
+                  <MiniQuiz
+                    containerClass={"bufferContainer"}
                     gameCount={gameCount}
                     setGameCount={setGameCount}
                     gamePoints={gamePoints}
@@ -143,10 +129,9 @@ useEffect(() => {
                     randomBool={randomBool.current}
                     questionAvailable={questionAvailable}
                     setQuestionAvailable={setQuestionAvailable}
-
-                />
+                  />
                   <MiniQuiz
-                    containerClass={'quizContainer'}
+                    containerClass={"quizContainer"}
                     gameCount={gameCount}
                     setGameCount={setGameCount}
                     gamePoints={gamePoints}
@@ -158,19 +143,14 @@ useEffect(() => {
                     randomBool={randomBool2.current}
                     questionAvailable={questionAvailable}
                     setQuestionAvailable={setQuestionAvailable}
-
-
                   />
-
                 </div>
-
-
               </>
             )}
           </Route>
         </Router>
       </main>
-      
+
       <SideBar />
       <Footer />
     </div>

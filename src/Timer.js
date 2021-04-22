@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 
 const Timer = ({ setTimer }) => {
@@ -27,7 +28,8 @@ const Timer = ({ setTimer }) => {
 
   return (
     <h3 className="timer">
-      <span className="minute">{minutes}</span> : <span className="second">{seconds < 10 ? `0${seconds}` : seconds}</span>
+      <span className="minute">{minutes}</span> :{" "}
+      <span className="second">{seconds < 10 ? `0${seconds}` : seconds}</span>
     </h3>
   );
 };
