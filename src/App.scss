@@ -184,6 +184,7 @@ main {
     height: 150px;
     border-radius: 50%;
     animation: bounce 1s ease-in-out infinite;
+    -webkit-animation: bounce 1s ease-in-out infinite;
   }
 }
 //mini quiz styles
@@ -321,6 +322,7 @@ main {
     opacity: 1;
     transform: scale(1.05);
     animation: bounce 1s ease-in-out infinite;
+    -webkit-animation: bounce 1s ease-in-out infinite;
   }
   @keyframes bounce {
     0% {
@@ -440,6 +442,7 @@ main .leaderBoard,
   width: 120px;
   height: 120px;
   animation: spin 2s linear infinite;
+  -webkit-animation: spin 2s linear infinite;
 
   @keyframes spin {
     0% {
