@@ -17,12 +17,14 @@ const GameOver = ({ gamePoints, timer }) => {
       });
       setUsername("");
     }
-
+    //back to landing site
     history.push("/");
+
   };
 
   const handleNoFame = (e) => {
     e.preventDefault();
+    //back to landing site
     history.push("/");
   }
 
@@ -51,7 +53,7 @@ const GameOver = ({ gamePoints, timer }) => {
         <button type="submit" onClick={handleSubmit}>
           Submit to Leaderboard
         </button>
-        <button onClick={handleNoFame}>I dont want no fame.</button>
+        <button onClick={handleNoFame}>I don't want no fame.</button>
       </form>
     </section>
   );

@@ -335,6 +335,17 @@ main {
       translate: 0px 0px;
     }
   }
+  @-webkit-keyframes bounce {
+    0% {
+      translate: 0px 0px;
+    }
+    50% {
+      translate: 0px 7px;
+    }
+    100% {
+      translate: 0px 0px;
+    }
+  }
 }
 main .leaderBoard,
 .leaderBoard {
@@ -445,6 +456,14 @@ main .leaderBoard,
   -webkit-animation: spin 2s linear infinite;
 
   @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes spin {
     0% {
       transform: rotate(0deg);
     }
