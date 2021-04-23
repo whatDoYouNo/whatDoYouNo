@@ -7,6 +7,8 @@ const LandingPage = ({
   setGameOver,
   setTimer,
 }) => {
+  
+  //This function occurs when the Start button is clicked. It resets game values to default so that a fresh game can start. 
   const handleReset = () => {
     setGameCount(1);
     setGamePoints(0);

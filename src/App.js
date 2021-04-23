@@ -15,26 +15,38 @@ import LandingPage from "./LandingPage";
 import SideBar from "./SideBar";
 
 function App() {
+  //state variable to hold data from API fetch. This variable stores the data of the current question.
   const [gameData, setGameData] = useState({
     definition: "",
   });
+  //another state variable to hold data from API fetch. This variable stores the data of the next question.
   const [buffer, setBuffer] = useState({
     definition: "",
   });
 
+  //state variable to keep track of question number
   const [gameCount, setGameCount] = useState(1);
+  //state variable to keep track of User's Score ( how many questions the user has answered correctly)
   const [gamePoints, setGamePoints] = useState(0);
+  //state variable used for conditional rendering of gameover screen
   const [gameOver, setGameOver] = useState(false);
+  //state variable used to differentiate first render of app
   const [initialRender, setInitialRender] = useState(true);
+  //state variable to extract information about time from timer.js
   const [timer, setTimer] = useState(0);
+  //state variable that is changed to pass different classes to miniquiz.js 
   const [miniQuizClass, setMiniQuizClass] = useState("miniQuiz");
-  const randomBool = useRef();
-  const randomBool2 = useRef();
+  //A Random boolean that is passed to miniquiz.js as a property. This random boolean is used for logic in determining if the left or right button should contain the correct answer in each question.
+  const randomBoolCurrent = useRef();
+  //A second boolean used for the buffer's randomization logic
+  const randomBoolBuffer = useRef();
+  //State variable used to determine if the user is allowed to click a button (prevents user from pressing buttons during animation)
   const [questionAvailable, setQuestionAvailable] = useState(true);
 
+  //function for api call. "Randomly Generates" a pair of homophones along with a definition using datamuse API
+  //the setFunction parameter is used to determine which state variable the API call will be stored in. 
   const searchHomophone = (setFunction) => {
     const index = Math.floor(Math.random() * homophones.length);
-    // console.log(index);
     const url = new URL(`https://api.datamuse.com/words`);
     url.search = new URLSearchParams({
       rel_hom: homophones[index],
@@ -44,7 +56,6 @@ function App() {
     fetch(url)
       .then((res) => res.json())
       .then((jsonData) => {
-        // console.log(jsonData);
         if (jsonData[0] !== undefined && jsonData[0].defs !== undefined) {
           setFunction({
             wrong: homophones[index],
@@ -57,39 +68,55 @@ function App() {
       });
   };
 
+  //this use effect occurs on app mount. 
   useEffect(() => {
-    randomBool.current = Boolean(Math.round(Math.random()));
-    randomBool2.current = Boolean(Math.round(Math.random()));
+    //Two random booleans are generated
+    randomBoolCurrent.current = Boolean(Math.round(Math.random()));
+    randomBoolBuffer.current = Boolean(Math.round(Math.random()));
+    //Data from API is fetched twice. The first time sets the current question's data and the next API call sets the buffer's data.
     searchHomophone(setGameData);
     searchHomophone(setBuffer);
   }, []);
 
+  //this use effect occurs when the user advances a question (answers correctly or incorrectly)
   useEffect(() => {
-    setTimeout(() => {
-      if (!initialRender) {
-        setGameData(buffer);
-        randomBool2.current = randomBool.current;
-        setTimeout(() => {
-          searchHomophone(setBuffer);
-          randomBool.current = Boolean(Math.round(Math.random()));
-        }, 100);
-      } else {
-        setInitialRender(false);
-      }
-    }, 1000);
-  }, [gameCount]);
-
-  useEffect(() => {
-    if (gameCount >= 11) {
+    //If the user is not done the game....
+    if (gameCount < 11) {
+      //After 1 second of delay....... (This is done to account for the duration of the sliding transition)
+      setTimeout(() => {
+        //This if statement prevents this code from running if this is the first render (component mount)
+        if (!initialRender) {
+          //Current question's data is set to the buffer's data
+          setGameData(buffer);
+          //The current question's boolean for button logic is set to the buffer's boolean
+          randomBoolCurrent.current = randomBoolBuffer.current;
+          //After 100ms of delay..... (this is done to prevent some visual bugs that occur due to async functions)
+          setTimeout(() => {
+            //Buffer recieves new set of data from API
+            searchHomophone(setBuffer);
+            //Buffer generates a new boolean for button logic
+            randomBoolBuffer.current = Boolean(Math.round(Math.random()));
+          }, 100);
+        } else {
+          //If it was the initial render(mount), then set initialRender boolean to false
+          setInitialRender(false);
+        }
+      }, 1000);
+      //If the user has advanced pass the 10th question...
+    } else{
+      //Initiate gameover behaviour
       setGameOver(true);
+      //Reset initialRender variable
       setInitialRender(true);
     }
   }, [gameCount]);
 
   return (
     <div className="App">
+      {/* Header is always rendered */}
       <Header />
 
+       {/* Landing page initially renders */}
       <main className="wrapper">
         <Router>
           <Route exact path="/">
@@ -102,8 +129,8 @@ function App() {
             />
           </Route>
 
+      {/* Game components render conditionally. They only render if the game is not over. If game is over, then gameover component renders instead*/}
           <Route path="/Arcade">
-            {/* Arcade */}
             {gameOver ? (
               <>
                 <GameOver gamePoints={gamePoints} timer={timer} />
@@ -126,7 +153,7 @@ function App() {
                     setGameData={setGameData}
                     miniQuizClass={miniQuizClass}
                     setMiniQuizClass={setMiniQuizClass}
-                    randomBool={randomBool.current}
+                    randomBool={randomBoolBuffer.current}
                     questionAvailable={questionAvailable}
                     setQuestionAvailable={setQuestionAvailable}
                   />
@@ -140,7 +167,7 @@ function App() {
                     setGameData={setGameData}
                     miniQuizClass={miniQuizClass}
                     setMiniQuizClass={setMiniQuizClass}
-                    randomBool={randomBool2.current}
+                    randomBool={randomBoolCurrent.current}
                     questionAvailable={questionAvailable}
                     setQuestionAvailable={setQuestionAvailable}
                   />
@@ -150,7 +177,7 @@ function App() {
           </Route>
         </Router>
       </main>
-
+      {/*Sidebar and footer always render*/}
       <SideBar />
       <Footer />
     </div>

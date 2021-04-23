@@ -2,10 +2,13 @@ import HighScore from "./HighScore";
 import { useState } from "react";
 
 const SideBar = () => {
+  //state variable for toggle-drawer behaviour of sidebar
   const [sideBarActive, setSideBarActive] = useState(false);
+  //state variable to manipulate class name of highscore for css transition animation
   const [nameOfClass, setNameOfClass] = useState("leaderBoard");
 
   const handleDrawer = () => {
+    //toggle sidebar boolean when sidebar is clicked
     setSideBarActive(!sideBarActive);
     if (!sideBarActive) {
       setNameOfClass("leaderBoard active");
