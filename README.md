@@ -6,4 +6,4 @@ powered by datamuse API
 # Tools
 React | Sass | Firebase | React-Router-Dom | API usage 
 # Live Project
-View our project live [here.](https://boring-jackson-ea7019.netlify.app/)
+View the project live [here.](https://vigilant-hopper-997c29.netlify.app/)
